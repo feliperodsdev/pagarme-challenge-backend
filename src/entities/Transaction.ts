@@ -26,8 +26,8 @@ export class Transaction {
     this.props.card_number = digits;
   }
 
-  get getCardNumber() {
-    return this.props.card_number;
+  get getProps() {
+    return this.props;
   }
 
   constructor(props: propsTransaction) {
