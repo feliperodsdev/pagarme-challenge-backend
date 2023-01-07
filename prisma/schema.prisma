@@ -5,7 +5,39 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id                   Int       @id @default(autoincrement())
+  value                Float
+  desc                 String
+  payment_method       Int
+  card_number          String
+  owner_card           String
+  expiration_date_card String
+  cvv                  Int
+  payables             Payable[]
+
+  @@map("transactions")
+}
+
+model Payable {
+  id           Int      @id @default(autoincrement())
+  status       Boolean
+  payment_date DateTime
+  fee          Float
+  total_value  Float
+  value        Float
+
+  transaction    Transaction @relation(fields: [transaction_id], references: [id], onDelete: Cascade)
+  transaction_id Int
+
+  @@map("payables")
 }
