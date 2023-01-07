@@ -9,7 +9,7 @@ describe("Using creaTransactionService", () => {
   it("Should return statusCode 201", async () => {
     class respositoryTest implements ICreateTransactionRepository {
       createTransaction(transaction: Transaction) {
-        console.log("");
+        console.log(transaction);
       }
     }
     const serviceCreate = new createTransaction(new respositoryTest());
