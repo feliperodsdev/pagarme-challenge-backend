@@ -1,6 +1,6 @@
 export enum enumCard {
-  CREDIT_CARD,
-  DEBIT_CARD,
+  CREDIT_CARD = 1,
+  DEBIT_CARD = 2,
 }
 
 interface propsTransaction {
