@@ -1,6 +1,6 @@
 export enum enumStatus {
-  PAID,
-  WAITING_FUNDS,
+  PAID = 2,
+  WAITING_FUNDS = 1,
 }
 
 interface propsCreatePayable {
@@ -8,7 +8,7 @@ interface propsCreatePayable {
   status: enumStatus;
 }
 
-interface propsPayable {
+export interface propsPayable {
   totalValue: number;
   value?: number;
   status: enumStatus;
@@ -33,6 +33,10 @@ export class Payable {
 
   get fee() {
     return this.props.fee;
+  }
+
+  get getProps() {
+    return this.props;
   }
 
   set dateToPay(status: enumStatus) {

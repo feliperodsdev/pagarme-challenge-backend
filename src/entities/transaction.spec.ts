@@ -13,6 +13,6 @@ describe("Create Transaction", () => {
       cvv: 547,
     });
     expect(transaction).toBeInstanceOf(Transaction);
-    expect(transaction.getCardNumber).toEqual("1457");
+    expect(transaction.getProps.card_number).toEqual("1457");
   });
 });

@@ -3,7 +3,7 @@ export enum enumCard {
   DEBIT_CARD = 2,
 }
 
-interface propsTransaction {
+export interface propsTransaction {
   value: number;
   desc: string;
   payment_method: enumCard;

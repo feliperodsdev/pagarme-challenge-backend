@@ -2,7 +2,8 @@ import express from "express";
 import { PrismaCreateTransaction } from "../respositories/Transaction/PrismaCreateTransactionAndPayableRespository";
 import { PrismaGetSaldo } from "../respositories/Transaction/PrismaGetSaldoRepository";
 import { createTransaction } from "../services/createTransaction";
-import { getSaldo } from "../services/getSaldo";
+import { getAmount } from "../services/getAmount";
+
 export const transactionRouter = express.Router();
 
 transactionRouter.post("/create", async (req, res) => {
@@ -17,7 +18,7 @@ transactionRouter.post("/create", async (req, res) => {
 
 transactionRouter.get("/amount", async (req, res) => {
   const getSaldoRepository = new PrismaGetSaldo();
-  const getSaldoService = new getSaldo(getSaldoRepository);
+  const getSaldoService = new getAmount(getSaldoRepository);
 
   const response = await getSaldoService.execute();
 
