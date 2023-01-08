@@ -14,7 +14,7 @@ interface CreateTransactionParams {
 interface IcreateTransactionService {
   execute(
     HttpRequest: HttpRequest<CreateTransactionParams>
-  ): Promise<HttpResponse<string>>;
+  ): Promise<HttpResponse<string | number | undefined>>;
 }
 
 export interface ICreateTransactionRepository {
@@ -27,7 +27,7 @@ export class createTransaction implements IcreateTransactionService {
   ) {}
   async execute(
     HttpRequest: HttpRequest<CreateTransactionParams>
-  ): Promise<HttpResponse<string>> {
+  ): Promise<HttpResponse<string | number | undefined>> {
     try {
       if (!HttpRequest.body) {
         return {
