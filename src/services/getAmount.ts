@@ -13,7 +13,7 @@ interface IgetSaldo {
   execute(): Promise<HttpResponse<IsaldoInfo | string>>;
 }
 
-export class getSaldo implements IgetSaldo {
+export class getAmount implements IgetSaldo {
   constructor(private readonly getSaldoRepository: IgetSaldoRepository) {}
   async execute(): Promise<HttpResponse<IsaldoInfo | string>> {
     try {
