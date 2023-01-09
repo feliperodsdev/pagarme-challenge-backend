@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { createTransaction } from "./createTransaction";
 import { enumCard } from "../entities/Transaction";
-import { inMemoryDbCreateTransaction } from "../respositories/Transaction/inMemoryDbCreateTransaction";
+import { inMemoryDbCreateTransaction } from "../repositories/Transaction/inMemoryDbCreateTransaction";
 
 describe("Using creaTransactionService", () => {
   it("Should return fee=3, totalValue=100 ans statusCode 201", async () => {

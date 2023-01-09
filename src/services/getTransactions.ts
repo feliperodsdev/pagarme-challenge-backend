@@ -24,11 +24,11 @@ export class getTransaction implements IgetTransactionsService {
   constructor(
     private readonly getTransactionRespository: IgetTransactionsRepository
   ) {}
-  async execute(): Promise<HttpResponse<any[] | string>> {
+  async execute(): Promise<HttpResponse<TransactionReturn[] | string>> {
     try {
       const list = await this.getTransactionRespository.getTransactions();
 
-      return ok<Transaction[]>(list);
+      return ok<TransactionReturn[]>(list);
     } catch (e) {
       return serverError();
     }
