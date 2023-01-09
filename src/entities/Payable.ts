@@ -31,10 +31,6 @@ export class Payable {
     this.props.value = this.props.totalValue - fee;
   }
 
-  get fee() {
-    return this.props.fee;
-  }
-
   get getProps() {
     return this.props;
   }

@@ -9,7 +9,7 @@ describe("Create an Payable", () => {
     });
     console.log(payable);
 
-    expect(payable.fee).toEqual(2.5);
+    expect(payable.getProps.fee).toEqual(2.5);
   });
   it("Should be able to create an Payable with fee 3.0", () => {
     const payable = new Payable({
@@ -19,6 +19,6 @@ describe("Create an Payable", () => {
 
     console.log(payable);
 
-    expect(payable.fee).toEqual(3.0);
+    expect(payable.getProps.fee).toEqual(3.0);
   });
 });

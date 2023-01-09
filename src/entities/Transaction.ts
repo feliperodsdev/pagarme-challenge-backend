@@ -19,7 +19,9 @@ export class Transaction {
   set setCardNumber(card_number: string) {
     let digits = "";
 
-    for (let i = card_number.length - 4; i < card_number.length; i++) {
+    const tam = card_number.length;
+
+    for (let i = tam - 4; i < tam; i++) {
       digits += card_number[i];
     }
 
