@@ -1,7 +1,7 @@
 import express from "express";
-import { PrismaCreateTransaction } from "../respositories/Transaction/PrismaCreateTransactionAndPayableRespository";
-import { PrismaGetSaldo } from "../respositories/Transaction/PrismaGetSaldoRepository";
-import { PrismaGetTransactions } from "../respositories/Transaction/PrismaGetTransactions";
+import { PrismaCreateTransaction } from "../repositories/Transaction/PrismaCreateTransactionAndPayableRespository";
+import { PrismaGetSaldo } from "../repositories/Transaction/PrismaGetSaldoRepository";
+import { PrismaGetTransactions } from "../repositories/Transaction/PrismaGetTransactions";
 import { createTransaction } from "../services/createTransaction";
 import { getAmount } from "../services/getAmount";
 import { getTransaction } from "../services/getTransactions";
