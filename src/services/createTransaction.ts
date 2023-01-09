@@ -1,4 +1,10 @@
-import { HttpRequest, HttpResponse } from "../helpers";
+import {
+  badRequest,
+  created,
+  HttpRequest,
+  HttpResponse,
+  serverError,
+} from "../helpers";
 import { enumCard, Transaction } from "../entities/Transaction";
 
 interface CreateTransactionParams {
@@ -30,10 +36,7 @@ export class createTransaction implements IcreateTransactionService {
   ): Promise<HttpResponse<string | number | undefined>> {
     try {
       if (!HttpRequest.body) {
-        return {
-          statusCode: 400,
-          data: "Body not found",
-        };
+        return badRequest<string>(`Body Not Found`);
       }
 
       const requiredFields = [
@@ -51,10 +54,7 @@ export class createTransaction implements IcreateTransactionService {
           !HttpRequest?.body?.[field as keyof CreateTransactionParams] ||
           field.trim() == ""
         ) {
-          return {
-            statusCode: 400,
-            data: `${field} is required`,
-          };
+          return badRequest<string>(`${field} Is Required`);
         }
       }
 
@@ -62,15 +62,9 @@ export class createTransaction implements IcreateTransactionService {
         new Transaction(HttpRequest.body)
       );
 
-      return {
-        statusCode: 201,
-        data: "Created",
-      };
+      return created<string>("Created");
     } catch (e) {
-      return {
-        statusCode: 500,
-        data: "Server Error",
-      };
+      return serverError();
     }
   }
 }

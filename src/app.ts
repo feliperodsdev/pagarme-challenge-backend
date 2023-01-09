@@ -6,4 +6,12 @@ app.use(express.json());
 
 app.use("/transactions", transactionRouter);
 
-app.listen(3333, () => console.log("Running"));
+const main = () => {
+  try {
+    app.listen(3333, () => console.log("Running"));
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+main();

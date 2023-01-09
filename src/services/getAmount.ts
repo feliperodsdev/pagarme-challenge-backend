@@ -1,4 +1,4 @@
-import { HttpResponse } from "../helpers";
+import { HttpResponse, ok, serverError } from "../helpers";
 
 export interface IsaldoInfo {
   available: number;
@@ -19,18 +19,12 @@ export class getAmount implements IgetSaldo {
     try {
       const saldos = await this.getSaldoRepository.get();
 
-      return {
-        statusCode: 200,
-        data: {
-          available: saldos.available,
-          waiting_funds: saldos.waiting_funds,
-        },
-      };
+      return ok<IsaldoInfo>({
+        available: saldos.available,
+        waiting_funds: saldos.waiting_funds,
+      });
     } catch (e) {
-      return {
-        statusCode: 400,
-        data: "Server error",
-      };
+      return serverError();
     }
   }
 }
