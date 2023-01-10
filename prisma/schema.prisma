@@ -31,7 +31,7 @@ model Transaction {
 model Payable {
   id           Int      @id @default(autoincrement())
   status       Int
-  payment_date DateTime
+  payment_date DateTime @db.Date
   fee          Float
   total_value  Float
   value        Float
