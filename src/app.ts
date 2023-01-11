@@ -15,7 +15,7 @@ const main = () => {
       updatePayblesRepository.update();
       console.log("Running task at midnight.");
     });
-    app.listen(3333, () => console.log("Running"));
+    app.listen(process.env.PORT, () => console.log("Running"));
   } catch (e) {
     console.log(e);
   }

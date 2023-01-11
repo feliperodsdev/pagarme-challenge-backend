@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "unit_test": "vitest",
-    "dev": "nodemon src/app.ts"
+    "dev": "nodemon src/app.ts",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
